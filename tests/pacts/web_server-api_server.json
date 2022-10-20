@@ -1,0 +1,51 @@
+{
+  "consumer": {
+    "name": "web_server"
+  },
+  "interactions": [
+    {
+      "description": "a GET request to get total earth's population",
+      "request": {
+        "method": "GET",
+        "path": "/population"
+      },
+      "response": {
+        "body": {
+          "population": 7794798739
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$.population": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "number"
+                }
+              ]
+            }
+          },
+          "header": {}
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "10.1.4"
+    },
+    "pactRust": {
+      "ffi": "0.3.12",
+      "models": "0.4.5"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "api_server"
+  }
+}
